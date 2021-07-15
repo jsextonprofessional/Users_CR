@@ -7,9 +7,7 @@ app.secret_key = 'bigsecrets'
 @app.route('/')
 def index():
     users = User.get_all_users()
-    for user in users:
-        print(user.id)
-    return "I work for now!"
+    return render_template('index.html', users = users)
 
 if __name__=="__main__":
     app.run(debug=True)
