@@ -11,7 +11,7 @@ def index():
 
 @app.route('/users/create', methods=['POST'])
 def create_user():
-    print(request.form)
+    User.create_user(request.form)
     return redirect('/')
 
 if __name__=="__main__":
