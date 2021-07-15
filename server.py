@@ -9,5 +9,10 @@ def index():
     users = User.get_all_users()
     return render_template('index.html', users = users)
 
+@app.route('/users/create', methods=['POST'])
+def create_user():
+    print(request.form)
+    return redirect('/')
+
 if __name__=="__main__":
     app.run(debug=True)
