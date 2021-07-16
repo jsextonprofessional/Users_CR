@@ -6,13 +6,18 @@ app.secret_key = 'bigsecrets'
 
 @app.route('/')
 def index():
-    users = User.get_all_users()
-    return render_template('index.html', users = users)
+    return redirect('/users')
 
-@app.route('/users/create', methods=['POST'])
+@app.route('/users')
+def read():
+    users = User.get_all_users()
+    return render_template('read.html', users = users)
+
+@app.route('/users/create', methods=['POST', 'GET'])
 def create_user():
-    User.create_user(request.form)
-    return redirect('/')
+    # if request.method == 'POST':
+        # return User.create_user(request.form)
+    return render_template('form.html')
 
 if __name__=="__main__":
     app.run(debug=True)

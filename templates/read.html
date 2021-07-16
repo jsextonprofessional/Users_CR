@@ -4,22 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USERS</title>
+    <title>Read (All)</title>
 </head>
 <body>
-    <h1>THESE ARE USERS:</h1>
+    <h1>All Users</h1>
     <ul>
         {% for user in users %}
         <li>ID: {{user.id}} Email: {{user.email}}</li>
         {% endfor %}
     </ul>
-
-    <h1>Add User:</h1>
-    <form action="/users/create" method="POST">
-    First Name: <input type="text" name="first_name"><br>
-    Last Name: <input type="text" name="last_name"><br>
-    Email: <input type="text" name="email"><br>
-    <input type="submit">
-    </form>
+    <a href="/users/create">Create a New User</a>
 </body>
 </html>
