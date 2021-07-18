@@ -13,11 +13,15 @@ def read():
     users = User.get_all_users()
     return render_template('read.html', users = users)
 
-@app.route('/users/create', methods=['POST', 'GET'])
+@app.route('/process', methods=['POST'])
+def process():
+    User.create_user(request.form)
+    return redirect('/')
+
+@app.route('/users/create')
 def create_user():
-    # if request.method == 'POST':
-        # return User.create_user(request.form)
-    return render_template('form.html')
+    return render_template('form.html', name=request.form)
+
 
 if __name__=="__main__":
     app.run(debug=True)
